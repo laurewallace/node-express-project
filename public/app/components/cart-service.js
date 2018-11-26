@@ -3,8 +3,8 @@ function CartService($http) {
     const self = this;
     self.getAllItems = () => {
         return $http({
-            method: "GET",
-            url: "/cart-items"
+            url: "/items",
+            method: "GET"        
         });
     };
     self.newItem = (newItem) => {

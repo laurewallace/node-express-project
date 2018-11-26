@@ -1,10 +1,11 @@
 "use strict"
 const express = require("express");
 const app = express();
-const cartItems = require("./cart-items.js");
+const routes = require("./routes.js");
+
 app.use(express.static("./public"));
 app.use(express.json());
-app.use("/", cartItems);
+app.use("/", routes);
 
 const port = 3000;
 app.listen(port, () => {

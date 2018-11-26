@@ -1,13 +1,14 @@
 <section class="container">
+<form ng-submit="$ctrl.addItem($ctrl.newItem)">
+    <input type="text" ng-model="$ctrl.newItem.product">
+    <input type="text" ng-model="$ctrl.newItem.price">
+    <input type="text" ng-model="$ctrl.newItem.quantity">
+    <button>Add Item</button>
+</form>
 
-<button ng-click="$ctrl.getAllItems()">See Cart</button>
-
-<ol>
-    <section class="list-items" ng-repeat="item in $ctrl.cartItems">
-        <li>Product: {{ item.product }}</li>
-        <p>Price: {{ item.price | currency }}</p>
-        <p>Quantity: {{ item.quantity }}</p>
-    </section>
-</ol>
-
+<section class="list-items" ng-repeat="item in $ctrl.listOfItems">
+    <input ng-blur="$ctrl.updateItem(item)" ng-model="item.product" type="text">
+    <input ng-blur="$ctrl.updateItem(item)" ng-model="item.price" type="text">
+    <input ng-blur="$ctrl.updateItem(item)" ng-model="item.quantity" type="text">
+    <button ng-click="$ctrl.deleteItem(item.id)">X</button>
 </section>
